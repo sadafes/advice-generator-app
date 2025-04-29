@@ -43,11 +43,12 @@ Users should be able to:
 - Flexbox
 - React
 - vite
+- tailwind css v4.1
 
 
 
 ### What I learned
 
 
-I didn't know anything about React or Wither before this project. I think I did pretty well for a first attempt. I'm proud of myself.
+I didn't know anything about React, vite or tailwind before this project. I think I did pretty well for a first attempt. I'm proud of myself.
 
