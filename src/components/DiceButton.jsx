@@ -9,7 +9,7 @@ const DiceButton = ({ onClick, loading }) => {
   disabled={loading}
 >
   <span className={`block w-8 h-8 bg-no-repeat bg-center bg-contain ${loading ? "animate-spin" : ""}`}
-    style={{backgroundImage: `url(${diceIcon})` }}
+    style={{backgroundImage: `url("${diceIcon}")` }}
   />
 
 </button>
