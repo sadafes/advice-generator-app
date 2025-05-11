@@ -1,16 +1,19 @@
-  const Divider = () => {
-    return (
-      <div className="flex items-center justify-center my-6 gap-4">
-        <div className="flex-1 h-px bg-light-cyan" />
-        <div className="flex flex-row items-center gap-2">
-          <div className="w-1 h-4 bg-light-cyan rounded-full" />
-          <div className="w-1 h-4 bg-light-cyan rounded-full" />
-        </div>
-        <div className="flex-1 h-px bg-light-cyan" />
+const Divider = () => {
+  return (
+    <div className="relative my-6 w-full h-[1px] bg-light-cyan">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark-grayish-blue px-2 py-1 rounded">
+        <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        className="fill-light-cyan"
+        >
+          <rect x="6" y="4" width="4" height="16" rx="1.5"/>
+          <rect x="14" y="4" width="4" height="16" rx="1.5" />
+        </svg>
       </div>
-    );
-  };
-  
-  
-  export default Divider;
-  
+    </div>
+  );
+};
+export default Divider;
