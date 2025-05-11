@@ -1,8 +1,26 @@
+import { useState, useEffect } from "react";
 import Divider from "./Divider";
 import DiceButton from "./DiceButton";
 import Skeleton from "./Skeleton";
 
-const AdviceCard = ({ advice, adviceId, fetchAdvice, loading }) => {
+const AdviceCard = () => {
+  const [advice, setAdvice] = useState("");
+  const [adviceId, setAdviceId] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const fetchAdvice = async () => {
+    setLoading(true);
+    const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache" });
+    const data = await res.json();
+    setAdvice(data.slip.advice);
+    setAdviceId(data.slip.id);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchAdvice();
+  }, []);
+
   return (
     <div className="bg-dark-grayish-blue text-light-cyan font-manrope p-[48px] md:p-10 rounded-2xl max-w-md w-full relative shadow-xl text-center">
       {loading ? (
