@@ -8,7 +8,6 @@ const DiceButton = ({ onAdviceFetched, setLoading, loading }) => {
     const data = await res.json();
     onAdviceFetched(data.slip.advice, data.slip.id);
   };
-
   useEffect(() => {
     fetchAdvice();
   }, []);
@@ -31,4 +30,3 @@ const DiceButton = ({ onAdviceFetched, setLoading, loading }) => {
 
 export default DiceButton;
 
-  
