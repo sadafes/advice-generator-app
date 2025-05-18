@@ -1,16 +1,19 @@
-import { useEffect } from "react";
+import { useContext } from "react";
+import { AdviceContext } from "../context/AdviceContext";
 import diceIcon from "../assets/icon-dice.svg";
 
-const DiceButton = ({ onAdviceFetched, setLoading, loading }) => {
+
+const DiceButton = () => {
+  const { setLoading, updateAdvice, loading } = useContext(AdviceContext);
+
   const fetchAdvice = async () => {
+    if (loading) return;
     setLoading(true);
     const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache" });
     const data = await res.json();
-    onAdviceFetched(data.slip.advice, data.slip.id);
+    updateAdvice({ advice: data.slip.advice, id: data.slip.id });
+    setLoading(false);
   };
-  useEffect(() => {
-    fetchAdvice();
-  }, []);
 
   return (
     <button

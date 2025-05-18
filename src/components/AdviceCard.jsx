@@ -1,18 +1,16 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
+import { AdviceContext } from "../context/AdviceContext";
 import Divider from "./Divider";
 import DiceButton from "./DiceButton";
 import Skeleton from "./Skeleton";
 
 const AdviceCard = () => {
-  const [advice, setAdvice] = useState("");
-  const [adviceId, setAdviceId] = useState("");
-  const [loading, setLoading] = useState(true);
+  const { advice, adviceId, loading } = useContext(AdviceContext);
 
-  const handleAdviceFetched = (newAdvice, newId) => {
-    setAdvice(newAdvice);
-    setAdviceId(newId);
-    setLoading(false);
-  };
+  useEffect(() => {
+    document.querySelector("button")?.click(); // simulate first fetch
+  }, []);
+
 
   return (
     <div className="bg-dark-grayish-blue text-light-cyan font-manrope p-[48px] md:p-10 rounded-2xl max-w-md w-full relative shadow-xl text-center">
@@ -30,11 +28,7 @@ const AdviceCard = () => {
         </>
       )}
 
-      <DiceButton
-        onAdviceFetched={handleAdviceFetched}
-        setLoading={setLoading}
-        loading={loading}
-      />
+      <DiceButton/>
     </div>
   );
 };
